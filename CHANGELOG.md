@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.5](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.4...v0.1.5) (2024-12-28)
+
+### Bug Fixes
+
+* 修复模板变量书写方式 ([d96b8fc](https://github.com/LiuWenXing1996/create-code-easy/commit/d96b8fc2b8c6b38731d80558a6045c9de9788c22))
+
 ## [0.1.4](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.3...v0.1.4) (2024-12-28)
 
 ### Bug Fixes
