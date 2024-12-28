@@ -1,5 +1,5 @@
 {
-  "name": "unde{{CODE_PATH_NAME}}ined",
+  "name": "<%= CODE_PATH_NAME %>",
   "version": "0.0.1",
   "description": "undefined",
   "type": "module",

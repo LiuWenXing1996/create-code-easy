@@ -28,22 +28,29 @@ describe("resolveTemplates", () => {
 
 describe("modifyTemplateFileContent", () => {
   test("修改模板内容", async () => {
-    const modifiedContent = await modifyTemplateFileContent({
-      content: `
-{{CODE_PATH_NAME}}
+    const inputContent = `
+<%= CODE_PATH_NAME %>
 
-1234{{CODE_PATH_NAME}}567
-      `,
+1234<%= CODE_PATH_NAME %>567
+
+<%= "\\<%= CODE_PATH_NAME %\\>" %>
+      `;
+    const modifiedContent = await modifyTemplateFileContent({
+      content: inputContent,
       data: {
         CODE_PATH_NAME: "code-path-name-test",
       },
     });
-    const newContent = `
+    const expectContent = `
 code-path-name-test
 
 1234code-path-name-test567
+
+<%= CODE_PATH_NAME %>
       `;
-    expect(modifiedContent).equal(newContent);
+    // console.log({ inputContent, modifiedContent, expectContent });
+
+    expect(modifiedContent).equal(expectContent);
   });
 });
 
@@ -65,7 +72,9 @@ describe("resolveTemplateConfig", () => {
 describe("createProjectByTemplate", async () => {
   const baseTemplateDir = templatesDir.resolve("./base");
   const targetProjectDir = dataDir.resolve("./createProjectByTemplate");
-  const inputData: TemplateInputData = {};
+  const inputData: TemplateInputData = {
+    CODE_PATH_NAME: "1234",
+  };
   test("创建项目", async () => {
     await createProjectByTemplate({
       templateDir: baseTemplateDir,

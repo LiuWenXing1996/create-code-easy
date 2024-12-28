@@ -1,9 +1,9 @@
 import fs from "fs-extra";
 import path from "node:path";
-import { template } from "radash";
 import { AbsolutePath, listChildDir, listFiles } from "./common";
 import micromatch from "micromatch";
 import { TemplateMeta } from "@/meta";
+import { template } from "lodash-es";
 
 export interface TemplateConfig {
   path: AbsolutePath;
@@ -92,12 +92,10 @@ export const modifyTemplateFileContent = async (params: {
   data: TemplateInputData;
 }) => {
   const { content, data } = params;
-  let newFileContent = content || "";
-  for (const varKey of Object.keys(data)) {
-    newFileContent = template(newFileContent, {
-      [varKey]: data[varKey],
-    });
-  }
+  const compiled = template(content, {
+    // interpolate: /{{([\s\S]+?)}}/g,
+  });
+  const newFileContent = compiled(data) || "";
   return newFileContent;
 };
 
