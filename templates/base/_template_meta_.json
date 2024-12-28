@@ -1,0 +1,5 @@
+{
+  "$schema": "../../schemas/meta.json",
+  "name": "template-base",
+  "description": "template-base-description"
+}

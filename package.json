@@ -1,0 +1,92 @@
+{
+  "name": "create-code-easy",
+  "version": "0.0.1",
+  "description": "create-code-easy",
+  "type": "module",
+  "files": [
+    "dist",
+    "bin",
+    "schemas"
+  ],
+  "license": "MIT",
+  "author": "LiuWenXing1996 lwx_redstone@163.com",
+  "keywords": [
+    "create-code"
+  ],
+  "bin": {
+    "parallel": "./bin/bin.mjs"
+  },
+  "repository": "https://github.com/LiuWenXing1996/create-code-easy",
+  "homepage": "https://github.com/LiuWenXing1996/create-code-easy",
+  "scripts": {
+    "build": "vite build && pnpm gen-schema",
+    "dev": "vite build -w",
+    "release": "release-it && pnpm build && pnpm publish",
+    "ci:release": "release-it --ci && pnpm build && pnpm publish",
+    "test": "vitest",
+    "test-watch": " vitest -w",
+    "test-read": "tsx ./src/cli",
+    "gen-schema": "tsx ./scripts/gen-schema",
+    "commit": "commit",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "dependencies": {
+    "@inquirer/core": "^10.1.2",
+    "@inquirer/prompts": "^7.2.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/micromatch": "^4.0.9",
+    "@types/yargs": "^17.0.33",
+    "bundle-require": "^5.0.0",
+    "chalk": "^5.3.0",
+    "core-js-pure": "^3.38.1",
+    "fs-extra": "^11.2.0",
+    "micromatch": "^4.0.8",
+    "radash": "^12.1.0",
+    "spawn-command": "^1.0.0",
+    "supports-color": "^9.4.0",
+    "tree-kill": "^1.2.2",
+    "ts-essentials": "^10.0.2",
+    "yargs": "^17.7.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.25.7",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.4.0",
+    "@commitlint/prompt-cli": "19.4.1",
+    "@commitlint/types": "^19.4.0",
+    "@release-it/conventional-changelog": "^9.0.0",
+    "babel-plugin-polyfill-corejs3": "^0.10.6",
+    "husky": "^9.1.6",
+    "parallel-wait-run": "^0.2.2",
+    "release-it": "^17.10.0",
+    "release-it-pnpm": "^4.6.3",
+    "tsx": "^4.19.1",
+    "vite": "^5.4.8",
+    "vite-plugin-babel": "^1.2.0",
+    "vite-plugin-dts": "^4.2.3",
+    "vitest": "^2.1.2",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "conventional-changelog-conventionalcommits": "^8.0.0"
+    }
+  }
+}

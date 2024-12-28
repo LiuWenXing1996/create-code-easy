@@ -1,0 +1,193 @@
+{
+   "type": "object",
+   "properties": {
+      "name": {
+         "type": "string"
+      },
+      "description": {
+         "type": "string"
+      },
+      "keepMeta": {
+         "type": "boolean"
+      },
+      "files": {
+         "type": "array",
+         "items": {
+            "type": "string"
+         }
+      },
+      "vars": {
+         "type": "object",
+         "additionalProperties": {
+            "anyOf": [
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "type": "string",
+                        "const": "input"
+                     },
+                     "description": {
+                        "type": "string"
+                     },
+                     "required": {
+                        "type": "boolean"
+                     }
+                  },
+                  "required": [
+                     "type"
+                  ],
+                  "additionalProperties": false
+               },
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "type": "string",
+                        "const": "select"
+                     },
+                     "description": {
+                        "type": "string"
+                     },
+                     "choices": {
+                        "type": "array",
+                        "items": {
+                           "type": "object",
+                           "properties": {
+                              "name": {
+                                 "type": "string"
+                              },
+                              "value": {
+                                 "type": "string"
+                              },
+                              "description": {
+                                 "type": "string"
+                              }
+                           },
+                           "required": [
+                              "name",
+                              "value"
+                           ],
+                           "additionalProperties": false
+                        }
+                     }
+                  },
+                  "required": [
+                     "type",
+                     "choices"
+                  ],
+                  "additionalProperties": false
+               },
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "type": "string",
+                        "const": "confirm"
+                     },
+                     "description": {
+                        "type": "string"
+                     },
+                     "default": {
+                        "type": "boolean"
+                     }
+                  },
+                  "required": [
+                     "type"
+                  ],
+                  "additionalProperties": false
+               },
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "type": "string",
+                        "const": "number"
+                     },
+                     "description": {
+                        "type": "string"
+                     },
+                     "default": {
+                        "type": "number"
+                     },
+                     "min": {
+                        "type": "number"
+                     },
+                     "max": {
+                        "type": "number"
+                     },
+                     "step": {
+                        "anyOf": [
+                           {
+                              "type": "number"
+                           },
+                           {
+                              "type": "string",
+                              "const": "any"
+                           }
+                        ]
+                     },
+                     "required": {
+                        "type": "boolean"
+                     }
+                  },
+                  "required": [
+                     "type"
+                  ],
+                  "additionalProperties": false
+               },
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "type": "string",
+                        "const": "checkbox"
+                     },
+                     "description": {
+                        "type": "string"
+                     },
+                     "required": {
+                        "type": "boolean"
+                     },
+                     "join": {
+                        "type": "string"
+                     },
+                     "choices": {
+                        "type": "array",
+                        "items": {
+                           "type": "object",
+                           "properties": {
+                              "name": {
+                                 "type": "string"
+                              },
+                              "value": {
+                                 "type": "string"
+                              },
+                              "description": {
+                                 "type": "string"
+                              }
+                           },
+                           "required": [
+                              "name",
+                              "value"
+                           ],
+                           "additionalProperties": false
+                        }
+                     }
+                  },
+                  "required": [
+                     "type",
+                     "choices"
+                  ],
+                  "additionalProperties": false
+               }
+            ]
+         }
+      }
+   },
+   "required": [
+      "name"
+   ],
+   "additionalProperties": false,
+   "$schema": "http://json-schema.org/draft-07/schema#"
+}
