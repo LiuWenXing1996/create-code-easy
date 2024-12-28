@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.3...v0.1.4) (2024-12-28)
+
+### Bug Fixes
+
+* 移除无效 console.log ([2b1bebc](https://github.com/LiuWenXing1996/create-code-easy/commit/2b1bebca8e640aa23dc85943526383b4d8660a30))
+
 ## [0.1.3](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.2...v0.1.3) (2024-12-28)
 
 ### Bug Fixes
