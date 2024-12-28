@@ -135,7 +135,7 @@ export class Program {
               templates: argTemplates || [],
             }
           );
-          console.log({ createConfig });
+          // console.log({ createConfig });
           createConfig.root = args.root ? root : createConfig.root;
           await create(createConfig);
         }

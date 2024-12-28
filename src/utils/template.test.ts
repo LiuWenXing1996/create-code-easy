@@ -75,7 +75,7 @@ describe("createProjectByTemplate", async () => {
     const baseTemplate = await resolveTemplateConfig({
       templateDir: templatesDir.resolve("./base"),
     });
-    console.log({ baseTemplate });
+    // console.log({ baseTemplate });
     if (!baseTemplate) {
       throw new Error("undefined baseTemplate");
     }
