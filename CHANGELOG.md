@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.3](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.2...v0.1.3) (2024-12-28)
+
+### Bug Fixes
+
+* 修复 cli 出错 ([7c1c6e6](https://github.com/LiuWenXing1996/create-code-easy/commit/7c1c6e67a05c67716a1b6ea819a1dbe9726e79ce))
+
 ## [0.1.2](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.1...v0.1.2) (2024-12-28)
 
 ## [0.1.1](https://github.com/LiuWenXing1996/create-code-easy/compare/v0.1.0...v0.1.1) (2024-12-28)
